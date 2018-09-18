@@ -1,0 +1,121 @@
+<html lang="es">
+<head>
+<!-- Permite caracteres Unicode en lenguaje español, incluyendo acentos y eñes-->
+	<meta charset="UTF-8">
+</head>
+<!-- Llamadas a bootstrap y jquery en la nube-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- CSS local-->
+<link rel="stylesheet" href="barra-buscar.css">
+<!-- Usa las configuraciones básicas de Twitter Bootstrap con su correspondiente ccs -->
+<!-- Se puede configurar con otras plantillas Bootstrap-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+   <div class="container">
+	  <!-- Inicio del encabezado del menú de navegación -->
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+         <span class="sr-only">Menu</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="#">Nombre de la empresa</a>
+      </div>
+	  <!-- Inicio de menú de navegación de búsqueda -->
+      <div id="navbar" class="navbar-collapse collapse">
+         <div class="hidden-xs navbar-form navbar-right">
+            <a onclick="documentTrack('#search');" href="#search" class="search-form-tigger btn btn-success" data-toggle="search-form"><i class="fa fa-search" aria-hidden="true"></i></a>
+         </div>
+		 <div class="visible-xs navbar-form navbar-right">
+            <input type="text" name="search" class="search form-control" placeholder="Buscar">
+         </div>
+      </div>
+   </div>
+</nav>
+<!-- Caja de texto de la búsqueda. Se debe configurar el id del form y el método action del form hacia el código que realiza la búsqueda según corresponda -->
+<div class="search-form-wrapper">
+   <form class="search-form" id="" action="">
+      <div class="input-group">
+         <input type="text" name="search" class="search form-control" placeholder="Buscar">
+         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i>
+         </span>
+         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-window-close" aria-hidden="true"></i>
+         </span>
+      </div>
+   </form>
+</div>
+<!-- Encabezado inicial de la página -->
+<div class="jumbotron">
+   <div class="container">
+      <h1>Bienvenidos!</h1>
+      <p>Descripción y slogan de la empresa.</p>
+	  <!-- Se puede configurar el enlace href de este botón para una página con mayor detalle -->
+	  <p><a class="btn btn-primary btn-lg" href="#" role="button">Ver más &raquo;</a></p>
+   </div>
+</div>
+<!-- Inicio del container -->
+<div class="container">
+   <!-- Inicio de fila -->
+   <!-- Tabla bootstrap de 4 columnas -->
+   <div class="row">
+      <div class="col-md-3">
+         <h2>Producto 1</h2>
+         <p>Descripción detallada del producto 1. </p>
+		<!-- Se puede configurar el enlace href de este botón para una página con mayor detalle -->
+         <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
+      </div>
+      <div class="col-md-3">
+         <h2>Producto 2</h2>
+         <p>Descripción detallada del producto 2. </p>
+		<!-- Se puede configurar el enlace href de este botón para una página con mayor detalle -->
+         <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
+      </div>
+      <div class="col-md-3">
+         <h2>Servicio 1</h2>
+         <p>Descripción detallada del servicio 1. </p>
+		<!-- Se puede configurar el enlace href de este botón para una página con mayor detalle -->
+         <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
+      </div>
+      <div class="col-md-3">
+         <h2>Servicio 2</h2>
+		<!-- Se puede configurar el enlace href de este botón para una página con mayor detalle -->
+         <p>Descripción detallada del servicio 2. </p>
+         <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
+      </div>
+   </div>
+   <!-- fin de fila -->
+   <!-- Se puede colocar tantas filas y tablas bootstrap que se desee -->
+   <hr>
+   <!-- Inicio de pie de página -->
+   <footer>
+      <p>&copy; Año - Nombre de la Empresa.</p>
+   </footer>
+</div>
+</html>
+<!-- fin del container -->
+<!-- script para hacer el efecto de mostrar y esconder la caja de búsqueda -->
+<script>
+$( document ).ready(function() {
+$('[data-toggle=search-form]').click(function() {
+    $('.search-form-wrapper').toggleClass('open');
+    $('.search-form-wrapper .search').focus();
+    $('html').toggleClass('search-form-open');
+  });
+  $('[data-toggle=search-form-close]').click(function() {
+    $('.search-form-wrapper').removeClass('open');
+    $('html').removeClass('search-form-open');
+  });
+$('.search-form-wrapper .search').keypress(function( event ) {
+  if($(this).val() == "Buscar") $(this).val("");
+});
+
+$('.search-form-wrapper').click(function(event) {
+  $('.search-form-wrapper').removeClass('open');
+  $('html').removeClass('search-form-open');
+});
+});
+</script>
+
